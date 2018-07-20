@@ -27,7 +27,7 @@ public class javaMail {
         // 用户名和密码都通过验证之后才能够正常发送邮件给收件人
 
         //这里的密码不能是明文，要在自己的邮箱账户里面开启允许第三方客户端去发送邮件，并且生成一个密码在这里使用
-        ts.connect("smtp.qq.com","1475591137@qq.com","vmokclyjvosibagg");
+        ts.connect("smtp.qq.com","","");
         //创建邮件
         Message message = createTextMail(session);
         //发送邮件
@@ -52,11 +52,11 @@ public class javaMail {
             e.printStackTrace();
         }
         //指明发件人
-        String from = "1475591137@qq.com";
+        String from = "";
         message.setFrom(new InternetAddress(nick+" <"+from+">"));
 
         //指明收件人
-        message.setRecipient(MimeMessage.RecipientType.TO,new InternetAddress("1475591137@qq.com"));
+        message.setRecipient(MimeMessage.RecipientType.TO,new InternetAddress(""));
         //邮件标题
         message.setSubject("面试通知");
         //邮件内容
