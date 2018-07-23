@@ -18,7 +18,7 @@ public class javaMail {
         // 发件人需要提交邮箱的用户名和密码给smtp服务器，
         // 用户名和密码都通过验证之后才能够正常发送邮件给收件人
         //这里的密码不能是明文，要在自己的邮箱账户里面开启允许第三方客户端去发送邮件，并且生成一个密码在这里使用
-        ts.connect("smtp.qq.com","","");
+        ts.connect("smtp.qq.com","","hj");
         //创建邮件
         // Message message = javaMailUtil.createTextMail(session,"tutu","","");
         //Message message = javaMailUtil.createImageMail(session,"tutu","","");
