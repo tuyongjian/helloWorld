@@ -100,7 +100,7 @@ public class javaMailUtil {
         text.setContent("这是一封邮件正文带图片<img src='cid:test.jpg'>的邮件", "text/html;charset=UTF-8");
         // 准备图片数据
         MimeBodyPart image = new MimeBodyPart();
-        DataHandler dh = new DataHandler(new FileDataSource("G:\\working\\HelloWorld\\javaDemo\\src\\main\\test.jpg"));
+        DataHandler dh = new DataHandler(new FileDataSource("G:\\working\\HelloWorld\\javaDemo\\src\\main\\resources\\static\\test.jpg"));
         image.setDataHandler(dh);
         image.setContentID("test.jpg");
         // 描述数据关系
@@ -151,7 +151,7 @@ public class javaMailUtil {
         text.setContent("使用JavaMail创建的带附件的邮件", "text/html;charset=UTF-8");
         // 准备图片数据
         MimeBodyPart attach = new MimeBodyPart();
-        DataHandler dh = new DataHandler(new FileDataSource("G:\\working\\HelloWorld\\javaDemo\\src\\main\\test.jpg"));
+        DataHandler dh = new DataHandler(new FileDataSource("G:\\working\\HelloWorld\\javaDemo\\src\\main\\resources\\static\\test.jpg"));
         attach.setDataHandler(dh);
         attach.setFileName(dh.getName());
         // 描述数据关系
@@ -204,12 +204,12 @@ public class javaMailUtil {
         // 准备图片数据
         //图片
         MimeBodyPart image = new MimeBodyPart();
-        image.setDataHandler(new DataHandler(new FileDataSource("G:\\working\\HelloWorld\\javaDemo\\src\\main\\test.jpg")));
+        image.setDataHandler(new DataHandler(new FileDataSource("G:\\working\\HelloWorld\\javaDemo\\src\\main\\resources\\static\\test.jpg")));
         image.setContentID("test.jpg");
 
         //附件1
         MimeBodyPart attach = new MimeBodyPart();
-        DataHandler dh = new DataHandler(new FileDataSource("G:\\working\\HelloWorld\\javaDemo\\src\\main\\4.rar"));
+        DataHandler dh = new DataHandler(new FileDataSource("G:\\working\\HelloWorld\\javaDemo\\src\\main\\resources\\static\\4.rar"));
         attach.setDataHandler(dh);
         attach.setFileName(dh.getName());
 
