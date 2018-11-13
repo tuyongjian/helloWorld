@@ -210,6 +210,17 @@
             <artifactId>jackson-databind</artifactId>
             <version>2.6.0</version>
         </dependency>
+
+        <!--guava工具类-->
+        <dependency>
+
+            <groupId>com.google.guava</groupId>
+
+            <artifactId>guava</artifactId>
+
+            <version>14.0</version>
+
+        </dependency>
     </dependencies>
 
 
