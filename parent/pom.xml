@@ -18,6 +18,8 @@
         <mysql.version>5.1.38</mysql.version>
         <!--mybatis版本-->
         <spring.mybatis>3.2.8</spring.mybatis>
+        <!--alibaba 数据库连接池-->
+        <druid.version>1.0.13</druid.version>
         <!--httpclient版本-->
         <httpclient.version>4.3.5</httpclient.version>
         <!--logback.xml所需要的jar-->
@@ -80,6 +82,36 @@
                 <artifactId>mybatis-spring</artifactId>
                 <version>${spring.mybatis}</version>
             </dependency>
+
+            <!-- logback jar -->
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-api</artifactId>
+                <version>${slf4j.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>ch.qos.logback</groupId>
+                <artifactId>logback-core</artifactId>
+                <version>${logback.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>ch.qos.logback</groupId>
+                <artifactId>logback-classic</artifactId>
+                <version>${logback.version}</version>
+            </dependency>
+            <!-- httpclient -->
+            <dependency>
+                <groupId>org.apache.httpcomponents</groupId>
+                <artifactId>httpclient</artifactId>
+                <version>${httpclient.version}</version>
+            </dependency>
+            <!--alibaba 数据库连接池-->
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>druid</artifactId>
+                <version>${druid.version}</version>
+            </dependency>
+
         </dependencies>
     </dependencyManagement>
 
