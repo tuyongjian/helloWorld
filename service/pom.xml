@@ -13,5 +13,13 @@
     <groupId>com.tu.service</groupId>
     <artifactId>service</artifactId>
 
+    <dependencies>
+        <dependency>
+            <groupId>com.tu.common</groupId>
+            <artifactId>common</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+    </dependencies>
+
 
 </project>

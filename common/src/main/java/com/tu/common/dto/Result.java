@@ -21,6 +21,9 @@ public class Result {
      */
     private String result;
 
+    public Result() {
+    }
+
     public Result(boolean success, String message) {
         this.success = success;
         this.message = message;
@@ -54,5 +57,14 @@ public class Result {
 
     public void setResult(String result) {
         this.result = result;
+    }
+
+    @Override
+    public String toString() {
+        return "Result{" +
+                "success=" + success +
+                ", message='" + message + '\'' +
+                ", result='" + result + '\'' +
+                '}';
     }
 }

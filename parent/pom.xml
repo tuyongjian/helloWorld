@@ -30,6 +30,15 @@
         <logback-ext-spring.version>0.1.4</logback-ext-spring.version>
         <!--freemark-->
         <freemark.verson>2.3.23</freemark.verson>
+        <!--alibaba-fastjson-->
+        <fastjson.version>1.1.41</fastjson.version>
+        <!--jackson-->
+        <jackson.version>2.7.4</jackson.version>
+
+        <!--文件上传组件-->
+        <common-io.version>2.4</common-io.version>
+        <common-fileupload.version>1.3.1</common-fileupload.version>
+        <common-codec.version>1.9</common-codec.version>
     </properties>
 
     <dependencies>
@@ -146,6 +155,48 @@
             <artifactId>freemarker</artifactId>
             <version>${freemark.verson}</version>
         </dependency>
+
+        <!-- 格式化对象，方便输出日志 -->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>${fastjson.version}</version>
+        </dependency>
+
+        <!--转换json作用-->
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-core</artifactId>
+            <version>${jackson.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>${jackson.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-annotations</artifactId>
+            <version>${jackson.version}</version>
+        </dependency>
+        <!--文件上传组件-->
+        <dependency>
+            <groupId>commons-fileupload</groupId>
+            <artifactId>commons-fileupload</artifactId>
+            <version>${common-fileupload.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
+            <version>${common-io.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>commons-codec</groupId>
+            <artifactId>commons-codec</artifactId>
+            <version>${common-codec.version}</version>
+        </dependency>
+
+
     </dependencies>
 
 
