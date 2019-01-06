@@ -112,10 +112,10 @@
     </root>
 
 
-    <logger name="java.sql" level="DEBUG">
+    <logger name="java.sql" level="info">
         <appender-ref ref="stdout"/>
     </logger>
-    <logger name="org.mybatis" level="DEBUG" >
+    <logger name="org.mybatis" level="info" >
         <appender-ref ref="stdout"/>
     </logger>
 </configuration>
