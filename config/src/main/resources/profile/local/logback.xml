@@ -48,7 +48,7 @@
     <appender name="INFO" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <file>${rootPath}/${appName}/info/${appName}-ilog.log</file>
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-            <fileNamePattern>${rootPath}/${appName}/all/${appName}-ilog-%d{yyyy-MM-dd}-%i.log</fileNamePattern>
+            <fileNamePattern>${rootPath}/${appName}/info/${appName}-ilog-%d{yyyy-MM-dd}-%i.log</fileNamePattern>
             <maxHistory>30</maxHistory>
             <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
                 <maxFileSize>10MB</maxFileSize>
@@ -70,7 +70,7 @@
     <appender name="ERROR" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <file>${rootPath}/${appName}/error/${appName}-elog.log</file>
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-            <fileNamePattern>${rootPath}/${appName}/all/${appName}-elog-%d{yyyy-MM-dd}-%e.log</fileNamePattern>
+            <fileNamePattern>${rootPath}/${appName}/error/${appName}-elog-%d{yyyy-MM-dd}-%e.log</fileNamePattern>
             <maxHistory>30</maxHistory>
             <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
                 <maxFileSize>10MB</maxFileSize>
@@ -101,6 +101,7 @@
     <logger name="java.sql" level="INFO"/>
     <logger name="javax" level="INFO"/>
 
+
     <!--日志的输出级别由低到高（越来问题越严重）trace->debug->info->warn->error -->
     <!-- root将级别为DEBUG及大于DEBUG的日志信息交给已经配置好的name='STDOUT'的appender处理，将信息打印到控制台-Console -->
     <root level="INFO">
@@ -111,11 +112,13 @@
         <appender-ref ref="ERROR"/>
     </root>
 
+    <!--这个可以输出sql的日志，但是不灵活，应该有另外一种方法，TODO-->
+    <logger name="com.tu.curd.dao" level="debug" />
 
-    <logger name="java.sql" level="info">
+    <logger name="java.sql" level="debug">
         <appender-ref ref="stdout"/>
     </logger>
-    <logger name="org.mybatis" level="info" >
+    <logger name="org.mybatis" level="debug" >
         <appender-ref ref="stdout"/>
     </logger>
 </configuration>

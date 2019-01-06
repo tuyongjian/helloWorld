@@ -100,7 +100,8 @@
       <param-name>contextConfigLocation</param-name>
       <param-value>classpath:profile/local/spring-mvc.xml</param-value>
     </init-param>
-    <!-- <load-on-startup>1</load-on-startup> -->
+    <!--启动时加载springmvc-->
+     <load-on-startup>1</load-on-startup>
   </servlet>
   <servlet-mapping>
     <servlet-name>springmvc</servlet-name>
