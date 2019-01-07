@@ -116,10 +116,10 @@
     <logger name="com.tu.curd.dao" level="debug" />
 
     <logger name="java.sql" level="debug">
-        <appender-ref ref="stdout"/>
+        <appender-ref ref="STDOUT"/>
     </logger>
     <logger name="org.mybatis" level="debug" >
-        <appender-ref ref="stdout"/>
+        <appender-ref ref="STDOUT"/>
     </logger>
 </configuration>
 

@@ -35,6 +35,9 @@
         <!--jackson-->
         <jackson.version>2.7.4</jackson.version>
 
+        <!--servlet相关-->
+        <servlet.version>2.5</servlet.version>
+
         <!--文件上传组件-->
         <common-io.version>2.4</common-io.version>
         <common-fileupload.version>1.3.1</common-fileupload.version>
@@ -196,6 +199,12 @@
             <version>${common-codec.version}</version>
         </dependency>
 
+        <!--HttpServlet相关-->
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>servlet-api</artifactId>
+            <version>${servlet.version}</version>
+        </dependency>
 
     </dependencies>
 

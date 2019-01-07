@@ -8,4 +8,6 @@ import com.tu.curd.model.User;
 public interface UserDao {
 
     public User selectUser(int id);
+
+    void insert(User user);
 }

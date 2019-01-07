@@ -18,4 +18,10 @@ public class UserServiceImpl implements IUserService {
     public User queryUser(int id) {
         return userDao.selectUser(id);
     }
+
+    public void addUser(User user) {
+        userDao.insert(user);
+    }
+
+
 }

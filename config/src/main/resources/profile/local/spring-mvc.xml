@@ -101,4 +101,13 @@
         <property name="exposeSessionAttributes" value="true" />
     </bean>
 
+    <!-- 接口跨域配置 切记平时时禁用，不然整个系统没有安全性可言，可被人随意调用-->
+    <mvc:cors>
+        <mvc:mapping path="/**"
+                     allowed-origins="*"
+                     allowed-methods="POST, GET, OPTIONS, DELETE, PUT"
+                     allowed-headers="Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With"
+                     allow-credentials="true" />
+    </mvc:cors>
+
 </beans>
