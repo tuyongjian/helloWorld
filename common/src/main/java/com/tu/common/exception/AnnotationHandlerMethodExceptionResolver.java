@@ -27,6 +27,7 @@ import org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExc
 
 /**
  * Created by tuyongjian on 2019/1/8.
+ * 异常处理，主要是页面请求返回页面，json请求返回json
  */
 public class AnnotationHandlerMethodExceptionResolver extends ExceptionHandlerExceptionResolver {
 
