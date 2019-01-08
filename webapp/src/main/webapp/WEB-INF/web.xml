@@ -100,6 +100,11 @@
       <param-name>contextConfigLocation</param-name>
       <param-value>classpath:profile/local/spring-mvc.xml</param-value>
     </init-param>
+    <!-- 取消其自动注册的异常解析器 -->
+    <init-param>
+      <param-name>detectAllHandlerExceptionResolvers</param-name>
+      <param-value>false</param-value>
+    </init-param>
     <!--启动时加载springmvc-->
      <load-on-startup>1</load-on-startup>
   </servlet>

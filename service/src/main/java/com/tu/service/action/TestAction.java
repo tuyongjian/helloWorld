@@ -1,5 +1,6 @@
 package com.tu.service.action;
 
+import com.tu.common.controller.BaseController;
 import com.tu.common.dto.Result;
 import com.tu.curd.model.User;
 import com.tu.curd.service.IUserService;
@@ -18,12 +19,17 @@ import org.springframework.web.bind.annotation.ResponseBody;
  */
 @Controller
 @RequestMapping(value = "test")
-public class TestAction {
+public class TestAction extends BaseController {
 
     private Logger logger = LoggerFactory.getLogger(TestAction.class);
 
     @Autowired
     private IUserService userService;
+
+    @RequestMapping(value = "index",method = RequestMethod.GET)
+    public String index(){
+        return "error/405";
+    }
 
     @ResponseBody
     @RequestMapping(value = "test",method = RequestMethod.POST)
