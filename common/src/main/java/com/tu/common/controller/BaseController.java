@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 
 /**
  * Created by tuyongjian on 2019/1/8.
+ * 公共的controller 主要是针对异常的处理
  */
 public class BaseController {
 
