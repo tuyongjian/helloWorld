@@ -93,12 +93,25 @@
             <value>.html</value>
         </property>
             <property name="cache" value="true" />
-        <property name="prefix" value="" />
+        <property name="prefix" value="/WEB-INF/view/" />
         <property name="contentType" value="text/html;charset=UTF-8"></property>
         <property name="requestContextAttribute" value="request" />
         <property name="exposeSpringMacroHelpers" value="true" />
         <property name="exposeRequestAttributes" value="true" />
         <property name="exposeSessionAttributes" value="true" />
     </bean>
+
+    <!--异常处理-->
+    <bean id="exceptionResolver" class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
+        <property name="exceptionMappings">
+            <props>
+                <prop key="com.tu.common.exception.SystemException">error/500</prop>
+                <prop key="com.tu.common.exception.BusinessException">error/404</prop>
+                <prop key="java.lang.exception">error/500</prop>
+                <prop key="com.tu.common.exception.AjaxException"></prop>
+            </props>
+        </property>
+    </bean>
+
 
 </beans>

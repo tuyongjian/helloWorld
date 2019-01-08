@@ -30,6 +30,7 @@ public class TestAction {
     public Result test(){
         Result result = new Result(true,"TEST");
         logger.info("------------[{}]",result.toString());
+        int i= 1/0;
         return result;
     }
 
