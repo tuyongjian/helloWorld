@@ -30,6 +30,13 @@ public class UserAction extends BaseController{
     @Autowired
     private IUserService userService;
 
+    @RequestMapping(value = "index",method = RequestMethod.GET)
+    public String index(){
+        Result result = new Result(true,"TEST");
+        logger.info("------------[{}]",result.toString());
+        return "error/403";
+    }
+
     @ResponseBody
     @RequestMapping(value = "test",method = RequestMethod.POST)
     public Result test(){
@@ -44,7 +51,6 @@ public class UserAction extends BaseController{
                       @RequestParam(value = "id") int id,
                           HttpServletResponse response){
         User user  = this.userService.queryUser(id);
-        //int i = 1/0;
         logger.info("queryUser is [{}]",user.toString());
         return user;
     }
