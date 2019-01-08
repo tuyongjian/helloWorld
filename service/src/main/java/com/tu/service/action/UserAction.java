@@ -1,5 +1,6 @@
 package com.tu.service.action;
 
+import com.tu.common.controller.BaseController;
 import com.tu.common.dto.Result;
 import com.tu.curd.model.User;
 import com.tu.curd.service.IUserService;
@@ -22,7 +23,7 @@ import java.sql.Timestamp;
  */
 @Controller
 @RequestMapping(value = "user")
-public class UserAction {
+public class UserAction extends BaseController{
 
     private Logger logger = LoggerFactory.getLogger(UserAction.class);
 
