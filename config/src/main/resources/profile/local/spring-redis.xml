@@ -31,7 +31,7 @@
         <property name="poolConfig" ref="redisPoolConfig"/>
         <property name="hostName" value="${redis.host}"/>
         <property name="port" value="${redis.port}"/>
-        <property name="password" value="${redis.password}"/>
+       <!-- <property name="password" value="${redis.password}"/>-->
         <property name="timeout" value="${redis.timeout}"/>
         <property name="usePool" value="${redis.userPool}"/>
     </bean>
