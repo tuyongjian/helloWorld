@@ -13,9 +13,7 @@
 
 
     <!-- 引入配置文件 -->
-    <bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
-        <property name="location" value="classpath:profile/local/jdbc.properties" />
-    </bean>
+    <context:property-placeholder location="classpath:profile/local/jdbc.properties" ignore-unresolvable="true" />
 
     <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource"
           destroy-method="close">
