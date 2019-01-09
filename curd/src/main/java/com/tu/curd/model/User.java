@@ -2,12 +2,13 @@ package com.tu.curd.model;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
+import java.io.Serializable;
 import java.sql.Timestamp;
 
 /**
  * Created by len on 2018/3/20.
  */
-public class User {
+public class User implements Serializable {
 
     private Integer id;
 

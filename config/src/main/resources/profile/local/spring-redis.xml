@@ -11,7 +11,15 @@
     <context:component-scan base-package="com.tu" />
 
     <!--引入配置文件-->
-    <context:property-placeholder location="classpath:/profile/local/local.properties" ignore-unresolvable="true" />
+    <bean  class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="locations">
+            <list>
+                <value>classpath*:/profile/local/local.properties</value>
+            </list>
+        </property>
+        <property name="ignoreUnresolvablePlaceholders" value="true" />
+    </bean>
+
 
     <!--redis连接池参数-->
     <bean id="redisPoolConfig" class="redis.clients.jedis.JedisPoolConfig">

@@ -10,23 +10,32 @@
     <!-- 自动扫描 -->
     <context:component-scan base-package="com.tu" />
 
+    <!-- 引入配置文件 这里有一个很坑爹的问题，
+    因为spring-redis.xml文件也是通过这个方法读取配置文件的，PropertyPlaceholderConfigurer
+    方法在生成第一个文件的时候就不会再次读取第二个文件，所以要加ignoreUnresolvablePlaceholders这个
+    参数，同时不能加id 不然也会报错-->
+    <bean  class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="locations">
+            <list>
+                <value>classpath*:profile/local/jdbc.properties</value>
+            </list>
+        </property>
+        <property name="ignoreUnresolvablePlaceholders" value="true" />
+    </bean>
 
-
-    <!-- 引入配置文件 -->
-    <context:property-placeholder location="classpath:profile/local/jdbc.properties" ignore-unresolvable="true" />
 
     <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource"
           destroy-method="close">
-        <property name="driverClassName" value="${driver}" />
-        <property name="url" value="${url}" />
-        <property name="username" value="${username}" />
-        <property name="password" value="${password}" />
+        <property name="driverClassName" value="${jdbc.driver}" />
+        <property name="url" value="${jdbc.url}" />
+        <property name="username" value="${jdbc.username}" />
+        <property name="password" value="${jdbc.password}" />
         <!-- 配置初始化大小、最小、最大 -->
-        <property name="initialSize" value="${initialSize}" />
-        <property name="minIdle" value="${minIdle}" />
-        <property name="maxActive" value="${maxActive}" />
+        <property name="initialSize" value="${jdbc.initialSize}" />
+        <property name="minIdle" value="${jdbc.minIdle}" />
+        <property name="maxActive" value="${jdbc.maxActive}" />
         <!-- 配置获取连接等待超时的时间 -->
-        <property name="maxWait" value="${maxWait}" />
+        <property name="maxWait" value="${jdbc.maxWait}" />
         <!-- 配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒 -->
         <property name="timeBetweenEvictionRunsMillis" value="60000" />
         <!-- 配置一个连接在池中最小生存的时间，单位是毫秒 -->

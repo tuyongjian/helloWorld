@@ -4,9 +4,11 @@ import com.tu.common.controller.BaseController;
 import com.tu.common.dto.Result;
 import com.tu.curd.model.User;
 import com.tu.curd.service.IUserService;
+import com.tu.redis.RedisCacheUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.cache.RedisCache;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -30,6 +32,9 @@ public class UserAction extends BaseController{
     @Autowired
     private IUserService userService;
 
+    @Autowired
+    private RedisCacheUtil redisCacheUtil;
+
     @RequestMapping(value = "index",method = RequestMethod.GET)
     public String index(){
         Result result = new Result(true,"TEST");
@@ -42,6 +47,8 @@ public class UserAction extends BaseController{
     public Result test(){
         Result result = new Result(true,"TEST");
         logger.info("------------[{}]",result.toString());
+        Object user =  this.redisCacheUtil.get("user");
+        logger.info("查询redis结果为---------[{}]",user.toString());
         return result;
     }
 
@@ -52,6 +59,7 @@ public class UserAction extends BaseController{
                           HttpServletResponse response){
         User user  = this.userService.queryUser(id);
         logger.info("queryUser is [{}]",user.toString());
+        this.redisCacheUtil.set("user",user,1000);
         return user;
     }
 
