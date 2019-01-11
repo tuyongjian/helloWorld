@@ -19,8 +19,18 @@ public class UserServiceImpl implements IUserService {
         return userDao.selectUser(id);
     }
 
-    public void addUser(User user) {
-        userDao.insert(user);
+    public int addUser(User user) {
+        int result = userDao.insert(user);
+        return result;
+    }
+
+    public int updateUser(User user) {
+        int result = userDao.update(user);
+        return result;
+    }
+
+    public int queryCount() {
+        return userDao.selectCount();
     }
 
 

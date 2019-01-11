@@ -47,8 +47,8 @@ public class UserAction extends BaseController{
     public Result test(){
         Result result = new Result(true,"TEST");
         logger.info("------------[{}]",result.toString());
-        Object user =  this.redisCacheUtil.get("user");
-        logger.info("查询redis结果为---------[{}]",user.toString());
+       // Object user =  this.redisCacheUtil.get("user");
+       // logger.info("查询redis结果为---------[{}]",user.toString());
         return result;
     }
 
@@ -59,8 +59,16 @@ public class UserAction extends BaseController{
                           HttpServletResponse response){
         User user  = this.userService.queryUser(id);
         logger.info("queryUser is [{}]",user.toString());
-        this.redisCacheUtil.set("user",user,1000);
+       // this.redisCacheUtil.set("user",user,1000);
         return user;
+    }
+
+    @ResponseBody
+    @RequestMapping(value = "queryCount",method = RequestMethod.POST)
+    public int queryUser(){
+        int count  = this.userService.queryCount();
+        logger.info("queryUser count is [{}]",count);
+        return count;
     }
 
     @ResponseBody
@@ -77,5 +85,16 @@ public class UserAction extends BaseController{
         user.setRemark("测试");
         userService.addUser(user);
         return new Result(true,"插入成功");
+    }
+
+    @ResponseBody
+    @RequestMapping(value = "updateUser",method = RequestMethod.POST)
+    public Result updateUser(ModelMap model){
+        User user  = new User();
+        user.setId(2);
+        user.setUpdateTime(new Timestamp(System.currentTimeMillis()));
+        user.setRemark("测试update");
+        userService.updateUser(user);
+        return new Result(true,"更新成功");
     }
 }

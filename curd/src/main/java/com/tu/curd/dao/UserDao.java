@@ -7,7 +7,11 @@ import com.tu.curd.model.User;
  */
 public interface UserDao {
 
-    public User selectUser(int id);
+    User selectUser(int id);
 
-    void insert(User user);
+    int insert(User user);
+
+    int update(User user);
+
+    int selectCount();
 }

@@ -7,7 +7,11 @@ import com.tu.curd.model.User;
  */
 public interface IUserService {
 
-    public User queryUser(int id);
+    User queryUser(int id);
 
-    void addUser(User user);
+    int addUser(User user);
+
+    int updateUser(User user);
+
+    int queryCount();
 }
