@@ -47,6 +47,10 @@
         <redis.version>2.9.0</redis.version>
         <spring.redis.version>1.8.4.RELEASE</spring.redis.version>
         <commons-pool2.version>2.4.2</commons-pool2.version>
+
+        <!--mybatis 二级缓存-->
+        <mybatis-ehcache.version>1.0.2</mybatis-ehcache.version>
+        <ehcache-core.version>2.6.10</ehcache-core.version>
     </properties>
 
     <dependencies>
@@ -229,6 +233,17 @@
             <version>${commons-pool2.version}</version>
         </dependency>
 
+        <!--mybatis 二级缓存所需要的jar 二级缓存由mybaits-ehcache 和ehcache-core实现分布式二级缓存-->
+        <dependency>
+            <groupId>org.mybatis.caches</groupId>
+            <artifactId>mybatis-ehcache</artifactId>
+            <version>${mybatis-ehcache.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>net.sf.ehcache</groupId>
+            <artifactId>ehcache-core</artifactId>
+            <version>${ehcache-core.version}</version>
+        </dependency>
 
     </dependencies>
 
