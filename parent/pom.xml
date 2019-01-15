@@ -51,6 +51,11 @@
         <!--mybatis 二级缓存-->
         <mybatis-ehcache.version>1.0.2</mybatis-ehcache.version>
         <ehcache-core.version>2.6.10</ehcache-core.version>
+        <!--aop-->
+        <aspectjrt.version>1.8.10</aspectjrt.version>
+        <aspectjweaver.version>1.8.10</aspectjweaver.version>
+
+        <commons-lang3.version>3.4</commons-lang3.version>
     </properties>
 
     <dependencies>
@@ -104,6 +109,19 @@
             <groupId>org.springframework</groupId>
             <artifactId>spring-test</artifactId>
             <version>${spring.version}</version>
+        </dependency>
+
+
+        <!-- aop -->
+        <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjrt</artifactId>
+            <version>${aspectjrt.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjweaver</artifactId>
+            <version>${aspectjweaver.version}</version>
         </dependency>
 
         <!--mysql数据库连接-->
@@ -244,6 +262,13 @@
             <artifactId>ehcache-core</artifactId>
             <version>${ehcache-core.version}</version>
         </dependency>
+
+        <!--<dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>${commons-lang3.version}</version>
+        </dependency>-->
+
 
     </dependencies>
 

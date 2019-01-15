@@ -12,6 +12,13 @@
 
     <groupId>com.tu.curd</groupId>
     <artifactId>curd</artifactId>
+    <dependencies>
+        <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjrt</artifactId>
+            <version>RELEASE</version>
+        </dependency>
+    </dependencies>
 
 
 </project>
