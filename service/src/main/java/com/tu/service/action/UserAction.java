@@ -47,8 +47,8 @@ public class UserAction extends BaseController{
     public Result test(){
         Result result = new Result(true,"TEST");
         logger.info("------------[{}]",result.toString());
-       // Object user =  this.redisCacheUtil.get("user");
-       // logger.info("查询redis结果为---------[{}]",user.toString());
+        Object user =  this.redisCacheUtil.get("user");
+        logger.info("查询redis结果为---------[{}]",user.toString());
         return result;
     }
 
@@ -59,7 +59,7 @@ public class UserAction extends BaseController{
                           HttpServletResponse response){
         User user  = this.userService.queryUser(id);
         logger.info("queryUser is [{}]",user.toString());
-       // this.redisCacheUtil.set("user",user,1000);
+        this.redisCacheUtil.set("user",user,1000);
         return user;
     }
 
