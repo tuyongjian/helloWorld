@@ -10,7 +10,8 @@
   <!-- Spring的配置文件 -->
   <context-param>
     <param-name>contextConfigLocation</param-name>
-    <param-value>classpath:profile/local/application.xml</param-value>
+    <!--web-inf下面的文件是自动加载的-->
+    <param-value> classpath*:profile/local/application-all.xml</param-value>
   </context-param>
 
   <!-- 加载logback.xml配置文件 -->

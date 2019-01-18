@@ -113,5 +113,14 @@
         <property name="messageConverters" ref="mappingJacksonHttpMessageConverter"/>
     </bean>
 
+    <!--一些拦截器和过滤器的配置-->
+
+    <mvc:interceptors>
+        <mvc:interceptor>
+            <mvc:mapping path="/**"/>
+            <bean class="com.tu.common.interceptor.UserInterceptor"/>
+        </mvc:interceptor>
+    </mvc:interceptors>
+
 
 </beans>
