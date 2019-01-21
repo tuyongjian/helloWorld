@@ -117,7 +117,7 @@
 
     <mvc:interceptors>
         <mvc:interceptor>
-            <mvc:mapping path="/**"/>
+            <mvc:mapping path="/user/test.json"/>
             <bean class="com.tu.common.interceptor.UserInterceptor"/>
         </mvc:interceptor>
     </mvc:interceptors>
