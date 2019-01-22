@@ -56,6 +56,10 @@
         <aspectjweaver.version>1.8.10</aspectjweaver.version>
 
         <commons-lang3.version>3.4</commons-lang3.version>
+
+        <!--shiro相关jar-->
+        <shiro-core.version>1.4.0</shiro-core.version>
+        <shiro-spring.version>1.4.0</shiro-spring.version>
     </properties>
 
     <dependencies>
@@ -263,12 +267,23 @@
             <version>${ehcache-core.version}</version>
         </dependency>
 
+        <!--shiro 集成spring-->
+        <dependency>
+            <groupId>org.apache.shiro</groupId>
+            <artifactId>shiro-core</artifactId>
+            <version>${shiro-core.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.shiro</groupId>
+            <artifactId>shiro-spring</artifactId>
+            <version>${shiro-spring.version}</version>
+        </dependency>
+
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>
             <version>${commons-lang3.version}</version>
         </dependency>
-
 
     </dependencies>
 
