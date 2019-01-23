@@ -1,5 +1,7 @@
 package com.tu.curd.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import java.io.Serializable;
 import java.sql.Time;
 import java.sql.Timestamp;
@@ -57,6 +59,7 @@ public class ShiroUser implements Serializable {
         this.isDelete = isDelete;
     }
 
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss",timezone = "GMT+8")
     public Timestamp getCreateTime() {
         return createTime;
     }
@@ -65,6 +68,7 @@ public class ShiroUser implements Serializable {
         this.createTime = createTime;
     }
 
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss",timezone = "GMT+8")
     public Timestamp getUpdateTime() {
         return updateTime;
     }
