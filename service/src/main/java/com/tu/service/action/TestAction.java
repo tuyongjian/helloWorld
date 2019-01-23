@@ -68,7 +68,7 @@ public class TestAction {
 
         ShiroUserRole shiroUserRole = new ShiroUserRole();
         shiroUserRole.setRoleId(1);
-        shiroUserRole.setUserId(1);
+        shiroUserRole.setUserId(2);
         shiroUserRoleService.addModel(shiroUserRole);
         return new Result();
     }
@@ -119,6 +119,7 @@ public class TestAction {
         ShiroUser shiroUser1 = this.shiroUserService.queryUserAndRole(map);
         ShiroUser shiroUser2 = this.shiroUserService.queryModel(1);
         logger.info("------------------"+shiroUser1.toString());
+        logger.info("------------------"+shiroUser1.getShiroUserRoles().toString());
         logger.info("------------------"+shiroUser2.toString());
 
 
