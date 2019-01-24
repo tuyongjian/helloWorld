@@ -16,6 +16,7 @@
             <value>
                 /shiro/toLogin = authc <!-- authc 表示需要认证才能访问的页面 -->
                 /shiro/home = authc, perms[/home]  <!-- perms 表示需要该权限才能访问的页面 -->
+                /shiro/*=authc
             </value>
         </property>
     </bean>
@@ -27,16 +28,16 @@
     <!-- 自定义Realm -->
     <bean id="MyRealm" class="com.tu.service.serviceImpl.MyRealm">
         <!-- 定义凭证匹配器 -->
-        <property name="credentialsMatcher" ref="credentialsMatcher"></property>
+       <!-- <property name="credentialsMatcher" ref="credentialsMatcher"></property>-->
     </bean>
 
     <!-- 凭证匹配器 org.apache.shiro.authc.credential.HashedCredentialsMatcher-->
-    <bean id="credentialsMatcher" class="org.apache.shiro.authc.credential.HashedCredentialsMatcher">
-        <!-- 加密算法名称 -->
+<!--    <bean id="credentialsMatcher" class="org.apache.shiro.authc.credential.HashedCredentialsMatcher">
+        &lt;!&ndash; 加密算法名称 &ndash;&gt;
         <property name="hashAlgorithmName" value="MD5"></property>
-        <!-- 散列次数 -->
-        <!--<property name="hashIterations" value="2"></property>-->
-    </bean>
+        &lt;!&ndash; 散列次数 &ndash;&gt;
+        &lt;!&ndash;<property name="hashIterations" value="2"></property>&ndash;&gt;
+    </bean>-->
 
     <!-- 保证实现了Shiro内部lifecycle函数的bean执行 -->
     <bean id="lifecycleBeanPostProcessor" class="org.apache.shiro.spring.LifecycleBeanPostProcessor"/>

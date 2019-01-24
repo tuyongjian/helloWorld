@@ -67,7 +67,7 @@ public class MyRealm extends AuthorizingRealm {
             shiroUser.setPassword(password);
             ShiroUser user = shiroUserService.queryModel(shiroUser);
            if(user!=null){
-               return new SimpleAuthenticationInfo(user.getUserName(),user.getPassword(),getName());
+               return new SimpleAuthenticationInfo(user.getUserName(),token.getPassword(),getName());
            }
         }
 

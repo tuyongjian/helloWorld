@@ -55,7 +55,7 @@ public class AnnotationHandlerMethodExceptionResolver extends ExceptionHandlerEx
             return null;
         }
         ModelAndView returnValue = super.doResolveHandlerMethodException(request, response, handlerMethod, exception);
-
+        logger.info("---------------------------"+exception);
         ResponseBody responseBodyAnn = AnnotationUtils.findAnnotation(method, ResponseBody.class);
         if (responseBodyAnn != null) {
             try {

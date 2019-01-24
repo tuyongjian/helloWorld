@@ -55,6 +55,7 @@ public class ShiroAction {
         UsernamePasswordToken usernamePasswordToken = new UsernamePasswordToken(shiroUser.getUserName(),shiroUser.getPassword());
         Subject subject  = SecurityUtils.getSubject();
         subject.login(usernamePasswordToken);
+        mav.setViewName("/shiro/home");
         return mav;
     }
 
