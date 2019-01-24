@@ -60,6 +60,9 @@
         <!--shiro相关jar-->
         <shiro-core.version>1.4.0</shiro-core.version>
         <shiro-spring.version>1.4.0</shiro-spring.version>
+        <shiro-cas.version>1.4.0</shiro-cas.version>
+        <shiro-ehcache.version>1.4.0</shiro-ehcache.version>
+        <shiro-web.verison>1.4.0</shiro-web.verison>
     </properties>
 
     <dependencies>
@@ -277,6 +280,17 @@
             <groupId>org.apache.shiro</groupId>
             <artifactId>shiro-spring</artifactId>
             <version>${shiro-spring.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.shiro</groupId>
+            <artifactId>shiro-web</artifactId>
+            <version>${shiro-web.verison}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.shiro</groupId>
+            <artifactId>shiro-ehcache</artifactId>
+            <version>${shiro-ehcache.version}</version>
         </dependency>
 
         <dependency>
