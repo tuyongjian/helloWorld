@@ -9,6 +9,7 @@ import com.tu.curd.service.IShiroUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -35,6 +36,14 @@ public class ShiroRoleServiceImpl implements IShiroRoleService {
 
     public int updateModel(ShiroRole shiroRole) {
         return shiroRoleDao.update(shiroRole);
+    }
+
+    public List<ShiroRole> queryModelList(ShiroRole shiroRole) {
+        return shiroRoleDao.selectList(shiroRole);
+    }
+
+    public List<ShiroRole> queryModelList(Map<String, Object> map) {
+        return shiroRoleDao.selectList(map);
     }
 
     public int deleteModel(ShiroRole shiroRole) {

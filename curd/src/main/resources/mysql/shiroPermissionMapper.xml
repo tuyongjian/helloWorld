@@ -28,12 +28,32 @@
 
     <select id="selectOne" parameterType="com.tu.curd.model.ShiroPermission" resultMap="ShiroPermissionResultMap">
         select * from shiro_permission
-        where id = #{id,jdbcType=INTEGER}
+        <where>
+            <if test="id !=null and id!='' ">
+                and id = #{id,jdbcType=INTEGER}
+            </if>
+            <if test="roleId !=null and roleId!='' ">
+                and roleId = #{roleId,jdbcType=INTEGER}
+            </if>
+        </where>
     </select>
 
     <select id="selectById" parameterType="int" resultMap="ShiroPermissionResultMap">
         select * from shiro_role
         where id = #{id,jdbcType=INTEGER}
+    </select>
+
+    <select id="selectList" parameterType="map" resultMap="ShiroPermissionResultMap">
+       select * from shiro_role
+       where roleId = #{roleId,jdbcType=INTEGER}
+    </select>
+
+    <select id="batchQuery"  resultMap="ShiroPermissionResultMap">
+        select * from shiro_role
+        where roleId in
+        <foreach collection="list" item="roleId" index="index" open="(" close=")" separator=",">
+                #{roleId}
+        </foreach>
     </select>
 
     <update id="update" parameterType="com.tu.curd.model.ShiroPermission">

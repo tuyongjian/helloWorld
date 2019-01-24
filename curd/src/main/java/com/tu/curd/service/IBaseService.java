@@ -1,6 +1,7 @@
 package com.tu.curd.service;
 
 import java.io.Serializable;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -15,6 +16,10 @@ public interface IBaseService <M extends Serializable>{
     int addModel(M m);
 
     int updateModel(M m);
+
+    List<M> queryModelList(M m);
+
+    List<M> queryModelList(Map<String,Object> map);
 
     int deleteModel(M m);
 

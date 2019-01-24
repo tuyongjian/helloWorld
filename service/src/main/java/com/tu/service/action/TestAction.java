@@ -1,6 +1,7 @@
 package com.tu.service.action;
 
 import com.tu.common.dto.Result;
+import com.tu.common.util.MD5Util;
 import com.tu.curd.model.ShiroPermission;
 import com.tu.curd.model.ShiroRole;
 import com.tu.curd.model.ShiroUser;
@@ -48,7 +49,7 @@ public class TestAction {
         ShiroUser shiroUser = new ShiroUser();
         shiroUser.setUserName("tuyongjian");
         shiroUser.setIsDelete("0");
-        shiroUser.setPassword("123");
+        shiroUser.setPassword(MD5Util.md5("123"));
         shiroUser.setCreateTime(new Timestamp(System.currentTimeMillis()));
         shiroUser.setUpdateTime(new Timestamp(System.currentTimeMillis()));
         this.shiroUserService.addModel(shiroUser);
@@ -60,15 +61,15 @@ public class TestAction {
 
         ShiroPermission shiroPermission = new ShiroPermission();
         shiroPermission.setRoleId(1);
-        shiroPermission.setToken("123");
-        shiroPermission.setUrl("123");
-        shiroPermission.setDescription("11111111111");
+        shiroPermission.setToken("");
+        shiroPermission.setUrl("/home");
+        shiroPermission.setDescription("home");
         this.shiroPermissionService.addModel(shiroPermission);
 
 
         ShiroUserRole shiroUserRole = new ShiroUserRole();
         shiroUserRole.setRoleId(1);
-        shiroUserRole.setUserId(2);
+        shiroUserRole.setUserId(1);
         shiroUserRoleService.addModel(shiroUserRole);
         return new Result();
     }
@@ -81,12 +82,12 @@ public class TestAction {
         shiroUser.setId(1);
         shiroUser.setUserName("tuyongjian");
         shiroUser.setIsDelete("0");
-        shiroUser.setPassword("123");
+        shiroUser.setPassword(MD5Util.md5("123"));
         shiroUser.setCreateTime(new Timestamp(System.currentTimeMillis()));
         shiroUser.setUpdateTime(new Timestamp(System.currentTimeMillis()));
         this.shiroUserService.updateModel(shiroUser);
 
-        ShiroRole shiroRole = new ShiroRole();
+     /*   ShiroRole shiroRole = new ShiroRole();
         shiroRole.setId(1);
         shiroRole.setName("admin");
         shiroRole.setDescription("admin-1");
@@ -105,7 +106,7 @@ public class TestAction {
         shiroUserRole.setRoleId(1);
         shiroUserRole.setUserId(2);
         shiroUserRoleService.updateModel(shiroUserRole);
-
+*/
         return new Result();
     }
 

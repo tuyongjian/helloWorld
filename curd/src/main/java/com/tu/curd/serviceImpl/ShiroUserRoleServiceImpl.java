@@ -6,6 +6,7 @@ import com.tu.curd.service.IShiroUserRoleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -32,6 +33,14 @@ public class ShiroUserRoleServiceImpl implements IShiroUserRoleService {
 
     public int updateModel(ShiroUserRole ShiroUserRole) {
         return shiroUserRoleDao.update(ShiroUserRole);
+    }
+
+    public List<ShiroUserRole> queryModelList(ShiroUserRole shiroUserRole) {
+        return shiroUserRoleDao.selectList(shiroUserRole);
+    }
+
+    public List<ShiroUserRole> queryModelList(Map<String, Object> map) {
+        return shiroUserRoleDao.selectList(map);
     }
 
     public int deleteModel(ShiroUserRole ShiroUserRole) {

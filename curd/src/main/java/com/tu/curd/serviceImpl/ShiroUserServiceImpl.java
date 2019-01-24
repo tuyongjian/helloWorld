@@ -7,6 +7,7 @@ import com.tu.curd.service.IShiroUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -32,6 +33,14 @@ public class ShiroUserServiceImpl implements IShiroUserService {
 
     public int updateModel(ShiroUser shiroUser) {
         return shiroUserDao.update(shiroUser);
+    }
+
+    public List<ShiroUser> queryModelList(ShiroUser shiroUser) {
+        return shiroUserDao.selectList(shiroUser);
+    }
+
+    public List<ShiroUser> queryModelList(Map<String, Object> map) {
+        return shiroUserDao.selectList(map);
     }
 
     public int deleteModel(ShiroUser shiroUser) {

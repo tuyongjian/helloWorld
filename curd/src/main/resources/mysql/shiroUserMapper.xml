@@ -40,6 +40,9 @@
             <if test="userName !=null and userName!='' ">
                 and user_name = #{userName,jdbcType=INTEGER}
             </if>
+            <if test="password !=null and password!='' ">
+                and password = #{password,jdbcType=INTEGER}
+            </if>
         </where>
     </select>
 

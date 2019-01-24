@@ -19,6 +19,8 @@ public interface BaseDao<M extends Serializable> {
 
     public List<M> selectList(M t);
 
+    public List<M> selectList(Map<String,Object> map);
+
     public int delete(M t);
 
     public int delete(Map<String,Object> map);

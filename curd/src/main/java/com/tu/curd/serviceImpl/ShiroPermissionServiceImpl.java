@@ -6,6 +6,7 @@ import com.tu.curd.service.IShiroPermissionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -34,11 +35,23 @@ public class ShiroPermissionServiceImpl implements IShiroPermissionService {
         return shiroPermissionDao.update(ShiroPermission);
     }
 
+    public List<ShiroPermission> queryModelList(ShiroPermission shiroPermission) {
+        return this.shiroPermissionDao.selectList(shiroPermission);
+    }
+
+    public List<ShiroPermission> queryModelList(Map<String, Object> map) {
+        return this.shiroPermissionDao.selectList(map);
+    }
+
     public int deleteModel(ShiroPermission ShiroPermission) {
         return shiroPermissionDao.delete(ShiroPermission);
     }
 
     public int deleteModel(Map<String, Object> map) {
         return shiroPermissionDao.delete(map);
+    }
+
+    public List<ShiroPermission> batchQuery(List<Integer> userId) {
+        return this.shiroPermissionDao.batchQuery(userId);
     }
 }
