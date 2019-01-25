@@ -17,6 +17,9 @@
  */
 package com.tu.common.util;
 
+import org.apache.shiro.crypto.hash.Md5Hash;
+import org.apache.shiro.crypto.hash.SimpleHash;
+
 import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -44,5 +47,27 @@ public class MD5Util {
             md5code = "0" + md5code;
         }
         return md5code;
+    }
+
+    /**
+     *  密码加密的盐
+     * shiro
+     * @param pwd
+     * @return
+     */
+    public static Object encodePwd(String pwd){
+
+        String saltSource = "tyj";
+        String hashAlgorithmName = "MD5";
+        Object salt = new Md5Hash(saltSource);
+        int hashIterations = 2;
+        Object result = new SimpleHash(hashAlgorithmName, pwd, salt, hashIterations);
+        String password = result.toString();
+        return password;
+
+    }
+
+    public static void main(String[] args) {
+        System.out.println(MD5Util.encodePwd("123"));
     }
 }

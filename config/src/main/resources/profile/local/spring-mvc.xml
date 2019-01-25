@@ -122,8 +122,4 @@
             <bean class="com.tu.common.interceptor.UserInterceptor"/>
         </mvc:interceptor>
     </mvc:interceptors>
-
-    <!--shiro 配置-->
-
-
 </beans>

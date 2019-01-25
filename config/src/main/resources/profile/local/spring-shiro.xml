@@ -5,18 +5,22 @@
        http://www.springframework.org/schema/beans/spring-beans.xsd">
 
     <bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
+        <!-- 装配 securityManager -->
         <property name="securityManager" ref="securityManager"/>
-        <!-- 身份认证失败，则跳转到登录页面的配置 -->
+        <!-- 配置登陆页面 这里要写controller地址或者webapp下面的地址-->
         <property name="loginUrl" value="/shiro/login.html"/>
-        <!--登录成功页面，如果自己设置了返回页面，则不跳转-->
-        <property name="successUrl" value="/shiro/home.html"/>
-        <!-- 权限认证失败，则跳转到指定页面 -->
-        <property name="unauthorizedUrl" value="/error/404.html"/>
+        <!-- 登陆成功后的一面 -->
+        <property name="successUrl" value="/shiro/success.html"/>
+        <!-- 认证未通过访问的页面，即经过认证但是没有相应的权限时跳转的页面 -->
+        <property name="unauthorizedUrl" value="/shiro/error.html"/>
+        <!-- 具体配置需要拦截哪些 URL, 以及访问对应的 URL 时使用 Shiro 的什么 Filter 进行拦截.  -->
         <property name="filterChainDefinitions">
             <value>
-                /shiro/toLogin = authc <!-- authc 表示需要认证才能访问的页面 -->
-                /shiro/home = authc, perms[/home]  <!-- perms 表示需要该权限才能访问的页面 -->
-                /shiro/*=authc
+                <!-- 配置登出: 使用 logout 过滤器 -->
+                /shiro-logout = logout
+                /shiro-* = anon
+                /user.jsp = roles[user]
+                /admin.jsp = roles[admin]
             </value>
         </property>
     </bean>
@@ -26,18 +30,9 @@
     </bean>
 
     <!-- 自定义Realm -->
-    <bean id="MyRealm" class="com.tu.service.serviceImpl.MyRealm">
-        <!-- 定义凭证匹配器 -->
-       <!-- <property name="credentialsMatcher" ref="credentialsMatcher"></property>-->
+    <bean id="MyRealm" class="com.tu.service.shiro.MyRealm" init-method="setCredentialMatcher">
     </bean>
 
-    <!-- 凭证匹配器 org.apache.shiro.authc.credential.HashedCredentialsMatcher-->
-<!--    <bean id="credentialsMatcher" class="org.apache.shiro.authc.credential.HashedCredentialsMatcher">
-        &lt;!&ndash; 加密算法名称 &ndash;&gt;
-        <property name="hashAlgorithmName" value="MD5"></property>
-        &lt;!&ndash; 散列次数 &ndash;&gt;
-        &lt;!&ndash;<property name="hashIterations" value="2"></property>&ndash;&gt;
-    </bean>-->
 
     <!-- 保证实现了Shiro内部lifecycle函数的bean执行 -->
     <bean id="lifecycleBeanPostProcessor" class="org.apache.shiro.spring.LifecycleBeanPostProcessor"/>
