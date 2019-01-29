@@ -16,11 +16,9 @@
         <!-- 具体配置需要拦截哪些 URL, 以及访问对应的 URL 时使用 Shiro 的什么 Filter 进行拦截.  -->
         <property name="filterChainDefinitions">
             <value>
-                <!-- 配置登出: 使用 logout 过滤器 -->
-                /shiro-logout = logout
-                /shiro-* = anon
-                /user.jsp = roles[user]
-                /admin.jsp = roles[admin]
+                <!-- 配置登出: 使用 logout 过滤器 authc 认证 roles授权 admin是角色-->
+                /user/**=authc
+                /user/**=roles[admin]
             </value>
         </property>
     </bean>
