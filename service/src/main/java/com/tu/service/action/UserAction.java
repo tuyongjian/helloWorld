@@ -59,7 +59,7 @@ public class UserAction extends BaseController{
                           HttpServletResponse response){
         User user  = this.userService.queryUser(id);
         logger.info("queryUser is [{}]",user.toString());
-        this.redisCacheUtil.set("user",user,1000);
+        //this.redisCacheUtil.set("user",user,1000);
         return user;
     }
 
