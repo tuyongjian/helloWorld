@@ -42,14 +42,14 @@ public class MyRealm extends AuthorizingRealm {
     protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principalCollection) {
         SimpleAuthorizationInfo info = new SimpleAuthorizationInfo();
         Object principal = principalCollection.getPrimaryPrincipal();//获取登录的用户名
-        if("admin".equals(principal)){               //两个if根据判断赋予登录用户权限
+        if("tuyongjian".equals(principal)){               //两个if根据判断赋予登录用户权限
             info.addRole("admin");
         }
         if("user".equals(principal)){
             info.addRole("list");
         }
 
-        info.addRole("user");
+        info.addRole("admin");
 
         return info;
     }
