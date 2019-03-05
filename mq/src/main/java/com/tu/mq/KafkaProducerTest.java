@@ -1,7 +1,9 @@
 package com.tu.mq;
 
+import com.tu.common.controller.BaseController;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import java.util.Map;
 
@@ -9,16 +11,17 @@ import java.util.Map;
  * Created by tuyongjian on 2019/3/5.
  */
 @Controller
-public class KafkaProducerTest {
+@RequestMapping(value = "kafka")
+public class KafkaProducerTest extends BaseController {
 
-    @RequestMapping(value = "test")
+    @RequestMapping(value = "test",method = RequestMethod.POST)
     public String test(){
         KafkaProducerServer kafkaProducerServer = new KafkaProducerServer();
 
-        String topic = "orderTopic";
+        String topic = "test";
         String value = "test";
         String ifPartition = "0";
-        Integer partitionNum = 3;
+        Integer partitionNum = 1;
         String role = "test";//用来生成key
         Map<String,Object> res = kafkaProducerServer.sendMesForTemplate
                 (topic, value, ifPartition, partitionNum, role);
