@@ -16,4 +16,6 @@ public interface IUserService {
     int updateUser(User user);
 
     int queryCount();
+
+    int procedure();
 }

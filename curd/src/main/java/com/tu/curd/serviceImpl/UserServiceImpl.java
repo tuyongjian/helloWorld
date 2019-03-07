@@ -33,5 +33,7 @@ public class UserServiceImpl implements IUserService {
         return userDao.selectCount();
     }
 
-
+    public int procedure() {
+        return userDao.procedure();
+    }
 }

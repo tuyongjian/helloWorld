@@ -66,7 +66,8 @@ public class UserAction extends BaseController{
     @ResponseBody
     @RequestMapping(value = "queryCount",method = RequestMethod.POST)
     public int queryUser(){
-        int count  = this.userService.queryCount();
+        //int count  = this.userService.queryCount();
+        int count  = this.userService.procedure();
         logger.info("queryUser count is [{}]",count);
         return count;
     }

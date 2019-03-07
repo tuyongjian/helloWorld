@@ -14,4 +14,6 @@ public interface UserDao {
     int update(User user);
 
     int selectCount();
+
+    int procedure();
 }
