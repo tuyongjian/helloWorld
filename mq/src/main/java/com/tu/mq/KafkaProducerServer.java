@@ -19,7 +19,7 @@ import java.util.concurrent.ExecutionException;
 @Component
 public class KafkaProducerServer {
 
-    @Autowired
+    //@Autowired
     private KafkaTemplate<String,String> kafkaTemplate;
 
     /**
