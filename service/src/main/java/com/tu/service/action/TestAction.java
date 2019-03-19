@@ -137,6 +137,13 @@ public class TestAction {
         return new Result();
     }
 
+    public static void main(String[] args) {
+        ShiroUser shiroUser = new ShiroUser();
+        ShiroUser shiroUser1 = shiroUser;
+
+        System.out.println(shiroUser.equals(shiroUser1));
+    }
+
 
 
 }

@@ -69,6 +69,9 @@
         <kafka-clients.version>1.0.1</kafka-clients.version>
         <kafka-streams.version>0.10.1.0</kafka-streams.version>
         <spring-integration-kafka.version>1.3.0.RELEASE</spring-integration-kafka.version>
+
+        <!--mongodb-->
+        <mongodb.version>3.2.2</mongodb.version>
     </properties>
 
     <dependencies>
@@ -332,6 +335,13 @@
              <groupId>org.springframework.integration</groupId>
              <artifactId>spring-integration-kafka</artifactId>
              <version>${spring-integration-kafka.version}</version>
+        </dependency>
+
+        <!--mongodb-->
+        <dependency>
+            <groupId>org.mongodb</groupId>
+            <artifactId>mongo-java-driver</artifactId>
+            <version>${mongodb.version}</version>
         </dependency>
 
     </dependencies>
