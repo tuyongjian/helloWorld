@@ -1,6 +1,9 @@
 package com.tu.service.serviceImpl;
 
+import com.mongodb.client.FindIterable;
 import com.mongodb.client.MongoCollection;
+import com.mongodb.client.MongoCursor;
+import com.mongodb.client.model.Filters;
 import com.tu.service.service.IMongoDbService;
 import org.bson.Document;
 import org.slf4j.Logger;
@@ -33,6 +36,40 @@ public class MongoDbServiceImpl implements IMongoDbService {
         documents.add(document);
         collection.insertMany(documents);
         logger.info("MongoDB插入成功-----------------");
+    }
+
+    public void createAndInsert() {
+
+        MongoCollection<Document> collection = mongoTemplate.getCollection("runoob");
+
+        logger.info("runoob-test collection chooise is success---");
+
+        if(collection ==null){
+            mongoTemplate.createCollection("runoob");
+            logger.info("runoob-test create is success--------------");
+        }else{
+
+            Document document = new Document("title", "MongoDB1111").
+                    append("description", "database").
+                    append("likes", 100).
+                    append("by", "Fly");
+            List<Document> documents = new ArrayList<Document>();
+            documents.add(document);
+            collection.insertMany(documents);
+            logger.info("MongoDB插入成功-----------------");
+        }
+
+    }
+
+    public FindIterable<Document> query() {
+        MongoCollection<Document> collection = mongoTemplate.getCollection("runoob");
+        FindIterable<Document> findIterable = collection.find();
+        return findIterable;
+    }
+
+    public void update() {
+        MongoCollection<Document> collection = mongoTemplate.getCollection("runoob");
+        collection.updateMany(Filters.eq("likes",100),new Document("$set",new Document("likes",200)));
     }
 
 }
