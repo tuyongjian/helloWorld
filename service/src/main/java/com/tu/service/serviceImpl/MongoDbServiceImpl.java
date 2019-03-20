@@ -72,4 +72,14 @@ public class MongoDbServiceImpl implements IMongoDbService {
         collection.updateMany(Filters.eq("likes",100),new Document("$set",new Document("likes",200)));
     }
 
+    public void delete() {
+        MongoCollection<Document> collection = mongoTemplate.getCollection("runoob");
+
+        //删除符合条件的第一个文档
+        collection.deleteOne(Filters.eq("likes", 200));
+
+        //删除所有符合条件的文档
+       // collection.deleteMany (Filters.eq("likes", 200));
+    }
+
 }

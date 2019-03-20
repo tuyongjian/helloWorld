@@ -19,6 +19,8 @@ public interface IMongoDbService {
 
      void update();
 
+     void delete();
+
 
 
 

@@ -66,4 +66,12 @@ public class MongoAction {
         return true;
     }
 
+    @ResponseBody
+    @RequestMapping(value = "delete",method = RequestMethod.POST)
+    public Object delete(){
+        this.mongoDbService.delete();
+        return true;
+    }
+
+
 }
