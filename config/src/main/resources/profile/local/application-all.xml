@@ -21,8 +21,8 @@
     <import resource="classpath:profile/local/spring-shiro.xml"/>
     <!--<import resource="classpath:profile/local/spring-redisCluster.xml" />-->
 
- <!--   <import resource="classpath:profile/local/kafkaProducer.xml"/>
-    <import resource="classpath:profile/local/kafkaConsumer.xml"/>-->
+    <import resource="classpath:profile/local/kafkaProducer.xml"/>
+    <import resource="classpath:profile/local/kafkaConsumer.xml"/>
 
     <import resource="classpath:profile/local/mongodb.xml"/>
 

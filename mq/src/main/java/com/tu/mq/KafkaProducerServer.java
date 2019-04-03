@@ -5,8 +5,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.kafka.support.SendResult;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 import org.springframework.util.concurrent.ListenableFuture;
 
+import javax.annotation.Resource;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
@@ -19,7 +21,7 @@ import java.util.concurrent.ExecutionException;
 @Component
 public class KafkaProducerServer {
 
-    //@Autowired
+    @Autowired
     private KafkaTemplate<String,String> kafkaTemplate;
 
     /**
@@ -30,20 +32,20 @@ public class KafkaProducerServer {
      * @param partitionNum 分区数 如果是否使用分区为0,分区数必须大于0
      * @param role 角色:bbc app erp...
      */
-    public Map<String,Object> sendMesForTemplate(String topic ,Object value,String ifPartition,
+    public  Map<String,Object> sendMesForTemplate(String topic ,Object value,String ifPartition,
                                                  Integer partitionNum,String role){
 
         String key = role+"-"+value.hashCode();
         String valueString = JSON.toJSONString(value);
         if ("0".equals(ifPartition)){
             int partitionIndex = getPartitionIndex(key,partitionNum);
-            ListenableFuture<SendResult<String,String>> result = kafkaTemplate.send(topic,partitionIndex,key,valueString);
-            Map<String,Object>  res = checkProRecord(result);
-            return res;
+            ListenableFuture<SendResult<String, String>> result = kafkaTemplate.send(topic, partitionIndex, key, valueString);
+            Map<String,Object> res = checkProRecord(result);
+           return res;
         }else {
             ListenableFuture<SendResult<String,String>> result = kafkaTemplate.send(topic,key,valueString);
             Map<String,Object> res = checkProRecord(result);
-            return res;
+           return res;
         }
     }
 
