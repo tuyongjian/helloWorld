@@ -11,7 +11,10 @@
   <context-param>
     <param-name>contextConfigLocation</param-name>
     <!--web-inf下面的文件是自动加载的-->
-    <param-value> classpath*:profile/local/application-all.xml</param-value>
+    <param-value>
+      classpath*:profile/local/application-all.xml,
+      classpath*:spring/spring-*.xml
+    </param-value>
   </context-param>
 
   <!-- 加载logback.xml配置文件 -->

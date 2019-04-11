@@ -16,14 +16,6 @@
     <!-- 启用spring mvc注解 -->
     <context:annotation-config />
 
-    <import resource="classpath:profile/local/spring-mybatis.xml" />
-    <import resource="classpath:profile/local/spring-redis.xml" />
-    <import resource="classpath:profile/local/spring-shiro.xml"/>
-    <!--<import resource="classpath:profile/local/spring-redisCluster.xml" />-->
-
-    <import resource="classpath:profile/local/kafkaProducer.xml"/>
-    <import resource="classpath:profile/local/kafkaConsumer.xml"/>
-
     <import resource="classpath:profile/local/mongodb.xml"/>
 
     <!-- 配置freemark 这个可以解析html文件 并且在html中使用freeMark表达式

@@ -73,6 +73,11 @@
         <!--mongodb-->
         <mongodb.version>3.2.2</mongodb.version>
         <spring-data-mongodb.version>2.0.9.RELEASE</spring-data-mongodb.version>
+
+        <!--dubbo-->
+        <dubbo.version>2.5.3</dubbo.version>
+        <zookeeper.version>3.4.7</zookeeper.version>
+        <zkclient.version>0.1</zkclient.version>
     </properties>
 
     <dependencies>
@@ -361,6 +366,30 @@
             <groupId>org.springframework.data</groupId>
             <artifactId>spring-data-mongodb</artifactId>
             <version>${spring-data-mongodb.version}</version>
+        </dependency>
+
+
+        <!-- dubbo相关 要吧dubbo默认的spring移除，不然项目启动不成功-->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>dubbo</artifactId>
+            <version>${dubbo.version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.springframework</groupId>
+                    <artifactId>spring</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.zookeeper</groupId>
+            <artifactId>zookeeper</artifactId>
+            <version>${zookeeper.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.github.sgroschupf</groupId>
+            <artifactId>zkclient</artifactId>
+            <version>${zkclient.version}</version>
         </dependency>
 
     </dependencies>
