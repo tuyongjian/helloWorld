@@ -17,7 +17,7 @@
     <bean  class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
         <property name="locations">
             <list>
-                <value>classpath*:spring/jdbc.properties</value>
+                <value>classpath*:profile/local/jdbc.properties</value>
             </list>
         </property>
         <property name="ignoreUnresolvablePlaceholders" value="true" />
@@ -62,16 +62,11 @@
                 <prop key="cacheEnabled">${mybatis.cacheEnabled}</prop>
             </props>
         </property>
-
-        <!-- 自动扫描mapping.xml文件 -->
-        <property name="mapperLocations" value="classpath*:/mysql/*.xml"></property>
     </bean>
 
-    <!-- DAO接口所在包名，Spring会自动查找其下的类 -->
-    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-        <!--配置扫描包的路径，如果要扫描多个包，中间使用逗号隔-->
-        <property name="basePackage" value="com.tu.curd.dao" />
-        <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"></property>
+    <bean id="baseDaoMapper" class="org.mybatis.spring.mapper.MapperFactoryBean"
+          abstract="true" lazy-init="true">
+        <property name="sqlSessionFactory" ref="sqlSessionFactory" />
     </bean>
 
     <!-- (事务管理)transaction manager, use JtaTransactionManager for global tx -->
@@ -79,7 +74,4 @@
           class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
         <property name="dataSource" ref="dataSource" />
     </bean>
-
-
-
 </beans>

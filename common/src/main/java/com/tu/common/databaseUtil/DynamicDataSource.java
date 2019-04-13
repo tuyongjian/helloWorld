@@ -1,4 +1,4 @@
-package com.tu.curd.util;
+package com.tu.common.databaseUtil;
 
 import org.springframework.jdbc.datasource.lookup.AbstractRoutingDataSource;
 

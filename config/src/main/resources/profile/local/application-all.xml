@@ -17,6 +17,7 @@
     <context:annotation-config />
 
     <import resource="classpath:profile/local/mongodb.xml"/>
+    <import resource="classpath:profile/local/spring-mybatis.xml"/>
 
     <!-- 配置freemark 这个可以解析html文件 并且在html中使用freeMark表达式
         在spring-mvc.xml文件中配置具体的文件表达式

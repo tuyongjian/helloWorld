@@ -21,6 +21,11 @@ public class Result {
      */
     private String result;
 
+    /**
+     * 返回的对象
+     */
+    private Object data;
+
     public Result() {
     }
 
@@ -59,12 +64,21 @@ public class Result {
         this.result = result;
     }
 
+    public Object getData() {
+        return data;
+    }
+
+    public void setData(Object data) {
+        this.data = data;
+    }
+
     @Override
     public String toString() {
         return "Result{" +
                 "success=" + success +
                 ", message='" + message + '\'' +
                 ", result='" + result + '\'' +
+                ", data=" + data +
                 '}';
     }
 }

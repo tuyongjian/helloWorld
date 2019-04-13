@@ -1,4 +1,4 @@
-package com.tu.curd.util;
+package com.tu.common.databaseUtil;
 
 /**
  * Created by len on 2019/1/15.

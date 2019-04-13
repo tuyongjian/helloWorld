@@ -92,7 +92,7 @@ public class UserAction extends BaseController{
     @RequestMapping(value = "updateUser",method = RequestMethod.POST)
     public Result updateUser(ModelMap model){
         User user  = new User();
-        user.setId(2);
+        user.setId(1);
         user.setUpdateTime(new Timestamp(System.currentTimeMillis()));
         user.setRemark("测试update");
         userService.updateUser(user);

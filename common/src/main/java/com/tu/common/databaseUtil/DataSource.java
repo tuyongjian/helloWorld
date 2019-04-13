@@ -1,4 +1,4 @@
-package com.tu.curd.util;
+package com.tu.common.databaseUtil;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

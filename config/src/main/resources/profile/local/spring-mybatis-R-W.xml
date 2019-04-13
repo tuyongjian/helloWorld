@@ -20,7 +20,7 @@
     <bean  class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
         <property name="locations">
             <list>
-                <value>classpath*:spring/jdbc.properties</value>
+                <value>classpath*:profile/local/jdbc.properties</value>
             </list>
         </property>
         <property name="ignoreUnresolvablePlaceholders" value="true" />
@@ -86,7 +86,7 @@
 
     <!--***************************************************************************-->
     <!-- 动态数据源，根据service接口上的注解来决定取哪个数据源 -->
-    <bean id="dataSource" class="com.tu.curd.util.DynamicDataSource">
+    <bean id="dataSource" class="com.tu.common.databaseUtil.DynamicDataSource">
         <property name="targetDataSources">
             <map key-type="java.lang.String">
                 <!--写库-->
@@ -98,28 +98,6 @@
         <property name="defaultTargetDataSource" ref="masterDataSource"/>
     </bean>
     <!--***************************************************************************-->
-
-    <!-- spring和MyBatis完美整合，不需要mybatis的配置映射文件 -->
-    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
-        <!--数据源配置-->
-        <property name="dataSource" ref="dataSource" />
-        <!--二级缓存配置 这里配置的是全局配置，如果要具体用的话，还要在某个具体的mapper.xml进行相应的配置-->
-        <property name="configurationProperties">
-            <props>
-                <prop key="cacheEnabled">${mybatis.cacheEnabled}</prop>
-            </props>
-        </property>
-
-        <!-- 自动扫描mapping.xml文件 -->
-        <property name="mapperLocations" value="classpath*:/mysql/*.xml"></property>
-    </bean>
-
-    <!-- DAO接口所在包名，Spring会自动查找其下的类 -->
-    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-        <!--配置扫描包的路径，如果要扫描多个包，中间使用逗号隔-->
-        <property name="basePackage" value="com.tu.curd.dao" />
-        <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"></property>
-    </bean>
 
     <!-- (事务管理)transaction manager, use JtaTransactionManager for global tx -->
     <bean id="transactionManager"

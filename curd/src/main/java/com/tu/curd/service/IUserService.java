@@ -1,7 +1,7 @@
 package com.tu.curd.service;
 
+import com.tu.common.databaseUtil.DataSource;
 import com.tu.curd.model.User;
-import com.tu.curd.util.DataSource;
 
 /**
  * Created by tuyongjian on 2019/1/6.
