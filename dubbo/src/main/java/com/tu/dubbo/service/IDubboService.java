@@ -7,4 +7,6 @@ package com.tu.dubbo.service;
  * @Created by tuyongjian
  */
 public interface IDubboService {
+
+    String sayHello(String str);
 }
