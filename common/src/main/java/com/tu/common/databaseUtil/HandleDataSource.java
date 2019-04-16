@@ -7,12 +7,14 @@ public class HandleDataSource {
 
     public static final ThreadLocal<String> threadLocal= new ThreadLocal<String>();
 
-    public static void putDataSource(String dataSource){
-        threadLocal.set(dataSource);
+    public static void setDbType(String dbType) {
+        threadLocal.set(dbType);
     }
-
-    public static String getDataSource(){
-        return threadLocal.get();
+    public static String getDbType() {
+        return ((String) threadLocal.get());
+    }
+    public static void clearDbType() {
+        threadLocal.remove();
     }
 
 }

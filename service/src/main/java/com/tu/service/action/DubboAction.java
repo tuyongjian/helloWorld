@@ -20,7 +20,7 @@ public class DubboAction {
 
     private Logger logger = LoggerFactory.getLogger(DubboAction.class);
 
-    @Autowired
+/*    @Autowired
     private IDubboService dubboService;
 
     @Autowired
@@ -40,5 +40,5 @@ public class DubboAction {
         Result result = new Result();
         result.setMessage( dubboServiceTest.sayHelloTest("world"));
         return result;
-    }
+    }*/
 }

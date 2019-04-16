@@ -16,12 +16,13 @@
         <spring.version>4.3.5.RELEASE</spring.version>
         <!--mysql数据库连接-->
         <mysql.version>5.1.38</mysql.version>
+        <oracel.version>10.2.0.3.0</oracel.version>
         <!--mybatis版本-->
         <mybatis.version>3.2.6</mybatis.version>
         <!--spring整合mybatis-->
         <mybatis.spring>1.2.2</mybatis.spring>
         <!--alibaba 数据库连接池-->
-        <druid.version>1.0.13</druid.version>
+        <druid.version>1.0.15</druid.version>
         <!--httpclient版本-->
         <httpclient.version>4.3.5</httpclient.version>
         <!--logback.xml所需要的jar-->
@@ -152,6 +153,14 @@
             <artifactId>mysql-connector-java</artifactId>
             <version>${mysql.version}</version>
         </dependency>
+
+        <!--oracle数据库连接-->
+        <dependency>
+            <groupId>com.oracle</groupId>
+            <artifactId>ojdbc6</artifactId>
+            <version>11.2.0.1.0</version>
+        </dependency>
+
         <!--mybatis-->
         <dependency>
             <groupId>org.mybatis</groupId>
