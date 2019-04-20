@@ -11,12 +11,12 @@
 
     <!-- 使用dubbo发布服务 -->
     <!-- 提供方应用信息，用于计算依赖关系 -->
-    <dubbo:application name="dubbo-consumer" />
-    <!--这个zookeeper注册中心的地址 IP就是我这边配置的虚拟机的IP，如果安装在windows,配置使用本机IP地址 -->
+    <!--<dubbo:application name="dubbo-consumer" />
+    &lt;!&ndash;这个zookeeper注册中心的地址 IP就是我这边配置的虚拟机的IP，如果安装在windows,配置使用本机IP地址 &ndash;&gt;
     <dubbo:registry protocol="zookeeper" address="localhost:2181" />
-    <!-- 用dubbo协议在20880端口暴露服务 -->
+    &lt;!&ndash; 用dubbo协议在20880端口暴露服务 &ndash;&gt;
     <dubbo:protocol name="dubbo" port="20880" />
-    <!--调用接口-->
+    &lt;!&ndash;调用接口&ndash;&gt;
     <dubbo:reference id="dubboService" interface="com.tu.dubbo.service.IDubboService"/>
-    <dubbo:reference id="dubboServiceTest" interface="com.tu.dubbo.service.IDubboServiceTest"/>
+    <dubbo:reference id="dubboServiceTest" interface="com.tu.dubbo.service.IDubboServiceTest"/>-->
 </beans>

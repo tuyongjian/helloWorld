@@ -42,14 +42,13 @@ public class UserAction extends BaseController{
         return "error/403";
     }
 
-    @ResponseBody
-    @RequestMapping(value = "test",method = RequestMethod.POST)
-    public Result test(){
+    @RequestMapping(value = "test",method = RequestMethod.GET)
+    public String test(){
         Result result = new Result(true,"TEST");
-        logger.info("------------[{}]",result.toString());
+        logger.info("测试ELK again[{}]",result.toString());
       /*  Object user =  this.redisCacheUtil.get("user");
         logger.info("查询redis结果为---------[{}]",user.toString());*/
-        return result;
+        return "error/403";
     }
 
     @ResponseBody

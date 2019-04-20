@@ -401,6 +401,13 @@
             <version>${zkclient.version}</version>
         </dependency>
 
+        <!--向logstash发送数据-->
+        <dependency>
+            <groupId>net.logstash.logback</groupId>
+            <artifactId>logstash-logback-encoder</artifactId>
+            <version>5.2</version>
+        </dependency>
+
     </dependencies>
 
 
