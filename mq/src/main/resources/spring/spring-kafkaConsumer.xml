@@ -32,7 +32,8 @@
 
     <!-- 消费者容器配置信息 -->
     <bean id="containerProperties_trade" class="org.springframework.kafka.listener.config.ContainerProperties">
-        <constructor-arg value="spring-kafka"/>
+        <!--这个value的值要和你发送消息的topic一致，不然消费者是消费不到消息的-->
+        <constructor-arg value="spring-kafka-test"/>
         <property name="messageListener" ref="messageListernerConsumerService"/>
     </bean>
 

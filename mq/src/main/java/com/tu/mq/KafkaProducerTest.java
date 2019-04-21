@@ -24,7 +24,7 @@ public class KafkaProducerTest extends BaseController {
 
     @RequestMapping(value = "test",method = RequestMethod.POST)
     public String test(){
-        String topic = "spring-kafka";
+        String topic = "spring-kafka-test";
         String value = "test";
         String ifPartition = "0";
         Integer partitionNum = 1;
