@@ -40,6 +40,7 @@
     </logger>
 
     <logger name="org.apache.kafka" level="OFF"/>
+    <logger name="org.mybatis" level="INFO"/>
 
 
     <!-- root将级别为“DEBUG”及大于“DEBUG”的日志信息交给已经配置好的名为“Console”的appender处理，
