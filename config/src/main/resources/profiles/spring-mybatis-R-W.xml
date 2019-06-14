@@ -17,14 +17,14 @@
     因为spring-redis.xml文件也是通过这个方法读取配置文件的，PropertyPlaceholderConfigurer
     方法在生成第一个文件的时候就不会再次读取第二个文件，所以要加ignoreUnresolvablePlaceholders这个
     参数，同时不能加id 不然也会报错-->
-    <bean  class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+   <!-- <bean  class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
         <property name="locations">
             <list>
-                <value>classpath*:profile/local/jdbc.properties</value>
+                <value>classpath*:profiles/local/jdbc.properties</value>
             </list>
         </property>
         <property name="ignoreUnresolvablePlaceholders" value="true" />
-    </bean>
+    </bean>-->
 
     <!-- master数据源 -->
     <bean id="masterDataSource" class="com.alibaba.druid.pool.DruidDataSource"

@@ -8,6 +8,7 @@ import com.tu.redis.RedisCacheUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.redis.cache.RedisCache;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -35,9 +36,12 @@ public class UserAction extends BaseController{
     @Autowired
     private RedisCacheUtil redisCacheUtil;
 
+    @Value("${tu}")
+    private String tu;
+
     @RequestMapping(value = "index",method = RequestMethod.GET)
     public String index(){
-        Result result = new Result(true,"TEST");
+        Result result = new Result(true,tu);
         logger.info("------------[{}]",result.toString());
         return "error/403";
     }

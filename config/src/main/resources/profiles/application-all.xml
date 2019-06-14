@@ -16,8 +16,20 @@
     <!-- 启用spring mvc注解 -->
     <context:annotation-config />
 
-    <import resource="classpath:profile/local/mongodb.xml"/>
-    <import resource="classpath:profile/local/spring-mybatis.xml"/>
+    <bean  class="com.tu.common.util.PropertiesUtil">
+        <property name="locations">
+            <list>
+                <value>classpath:profiles/jdbc.properties</value>
+                <value>classpath:profiles/application.properties</value>
+                <value>classpath:profiles/mongodb.properties</value>
+            </list>
+        </property>
+        <property name="ignoreUnresolvablePlaceholders" value="true" />
+    </bean>
+
+
+    <import resource="classpath:/profiles/mongodb.xml"/>
+    <import resource="classpath:/profiles/spring-mybatis.xml"/>
 
     <!-- 配置freemark 这个可以解析html文件 并且在html中使用freeMark表达式
         在spring-mvc.xml文件中配置具体的文件表达式
